@@ -92,7 +92,7 @@ const signin = async (req, res)=>{
         },JWT_SECRET_KEY,{
             expiresIn:3600// 1 hour
         })
-        return res.status(200).json(error(200,{
+        return res.status(200).json(success(200,{
             id:user.id,
             username:user.username,
             roles:RolesNames,
