@@ -6,7 +6,16 @@ const DB_PORT = process.env.PORT;
 const DATABASE = process.env.DATABASE;
 
 const seed = require('./rolesSeeder')
-mongoose.connect(`mongodb://${LOCALHOST}:${DB_PORT}/${DATABASE}`);
+console.log('Starting...')
+
+if(process.env.ENVIRONMENT == 'development')
+{
+    mongoose.connect(`mongodb://${LOCALHOST}:${DB_PORT}/${DATABASE}`);
+}
+else{
+    console.log(MONGODB_CLOUD_CON)
+    mongoose.connect(MONGODB_CLOUD_CON);
+}
 const db = mongoose.connection;
 db.on('error',(e)=>{
     console.error(e)
