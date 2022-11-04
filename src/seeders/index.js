@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 require('dotenv').config()
-
+const MONGODB_CLOUD_CON = process.env.MONGODB_CLOUD_CON;
 const LOCALHOST = process.env.HOST;
 const DB_PORT = process.env.PORT;
 const DATABASE = process.env.DATABASE;
