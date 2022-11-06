@@ -36,7 +36,8 @@ const signup = (req, res)=>{
                     return res.status(500).json(error(500,"Server Side Error"))
 
             })
-            return res.status(201).json(success(201,user,"Registered Successfully"))
+            userQr = user.populate('/','-password')
+            return res.status(201).json(success(201,userQr,"Registered Successfully"))
             })
             
 
@@ -53,7 +54,7 @@ const signup = (req, res)=>{
                     if(err)
                         return res.status(500).json(error(500,"Server Side Error"))
 
-                    return res.status(201).json(error(201,user,"Registered Successfully"))
+                    return res.status(201).json(sucess(201,user,"Registered Successfully"))
                     
                 })
             })
