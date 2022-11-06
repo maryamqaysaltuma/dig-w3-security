@@ -36,8 +36,8 @@ const signup = (req, res)=>{
                     return res.status(500).json(error(500,"Server Side Error"))
 
             })
-            userQr = user.populate('/','-password')
-            return res.status(201).json(success(201,userQr,"Registered Successfully"))
+            
+            return res.status(201).json(success(201,user,"Registered Successfully"))
             })
             
 
@@ -63,12 +63,12 @@ const signup = (req, res)=>{
 }
 
 const signin = async (req, res)=>{
-    let errors = validationResult(req).array();
-    if(errors)
-    {
-        return res.status(400).json(error(400,errors))
+    // let errors = validationResult(req).array();
+    // if(errors)
+    // {
+    //     return res.status(400).json(error(400,errors))
 
-    }
+    // }
     try {
         let user = await User.findOne({
             username:req.body.username
