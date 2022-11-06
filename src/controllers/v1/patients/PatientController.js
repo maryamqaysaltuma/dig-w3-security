@@ -152,13 +152,13 @@ const searchPatients = async (req, res)=>{
 const newHistory = async (req, res)=>{
     const id = req.params.id;//patient
     // TO-DO
-    const errors = validationResult(req).array();
-    console.error(errors)
-    if(errors && errors.length > 0)
-    {
-        return res.status(400).json(error(400,"You have to upload a file"))
+    // const errors = validationResult(req).array();
+    // console.error(errors)
+    // if(errors && errors.length > 0)
+    // {
+    //     return res.status(400).json(error(400,"You have to upload a file"))
 
-    }
+    // }
     let p = await Patient.findById(id);
     console.log('p',p)
     if(!p)
