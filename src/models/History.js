@@ -9,6 +9,9 @@ const HistorySchema = new Schema({
     report: String,
     prescription:[ 
         // TO-DO
+    ],
+    images:[
+        
     ]
     
 })

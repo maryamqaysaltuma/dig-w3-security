@@ -164,20 +164,21 @@ const newHistory = async (req, res)=>{
     if(!p)
         return res.status(404).json(error(404,{},"No Data"))
 
-    
+
     let h = new History(req.body)
+    console.log(h)
     await h.save()
     if(!p.history)
-        p.history = []
         p.history.push(h._id)
 
     console.log('file is ',req.file)
 
     if(req.file)
     {
-        if(!p.images)
-            p.images = []
-        p.images.push(req.file.originalname)
+        if(!h.images)
+            h.images = []
+        h.images.push(req.file.originalname)
+        h.save()
     }
     p.save()
     
