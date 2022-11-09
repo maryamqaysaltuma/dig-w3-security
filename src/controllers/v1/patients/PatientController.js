@@ -165,9 +165,8 @@ const newHistory = async (req, res)=>{
         return res.status(404).json(error(404,{},"No Data"))
 
 
-    let h = new History(req.body)
-    console.log(h)
-    await h.save()
+    let h = await History.create(req.body)
+       
     if(!p.history)
         p.history.push(h._id)
 
